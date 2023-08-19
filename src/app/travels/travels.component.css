@@ -1,0 +1,31 @@
+.options-btn-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: aliceblue;
+    margin-left: 25px;
+    margin-right: 25px;
+    border-radius: 5px;
+}
+
+.btn-option {
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.btn-option.lt {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.btn-option.rt {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.btn-option:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: 0.2s;
+}

@@ -1,0 +1,31 @@
+.btn-submit {
+    background-color: crimson; 
+    color: whitesmoke;
+}
+
+.btn-submit:hover {
+    background-color: whitesmoke;
+    border: 1px solid crimson;
+    color: crimson;
+    transition: 0.3s;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.btn-options:hover {
+  color: dodgerblue;
+}
+
+h5 {
+  font-family: 'Kanit', sans-serif;
+}
+
+.search-item {
+  cursor: pointer;
+}
+
+.search-item:hover {
+  background-color: rgba(133, 140, 139, 0.1);
+}

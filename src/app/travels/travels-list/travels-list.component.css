@@ -1,0 +1,11 @@
+.card-item-active {
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.card-item:hover {
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}

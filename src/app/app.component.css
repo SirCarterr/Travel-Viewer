@@ -1,0 +1,6 @@
+.travel-window {
+    height: 100vh;
+    border-top-left-radius: 20px; 
+    border-bottom-left-radius: 20px; 
+    /* background-color: lightgray; */
+}

@@ -1,0 +1,18 @@
+<div class="p-2" (click)="setPolyline()">
+    <div *ngFor="let l of journey?.legs; let i = index" class="p-1">
+        <div class="d-flex flex-column">
+            <h4>Leg {{i + 1}}</h4>
+            <h5>{{l.origin.name}} -> {{l.destination.name}}</h5>
+            <p class="m-0"><b>Depature:</b> {{l.depature}}</p>
+            <small>(<b>Planned:</b> {{l.plannedDepature}})</small>
+            <p class="mb-0 mt-1"><b>Arrival:</b> {{l.arrival}}</p>
+            <small>(<b>Planned:</b> {{l.plannedArrival}})</small>
+            <br>
+            <p class="m-0"><b>Type:</b> {{l.line.mode}}</p>
+            <p><b>Name:</b> {{l.line.name}} ({{l.line.product}})</p>
+            <small><b>Operator:</b> {{l.line.operator.name}}</small>
+            <small><b>Load factor:</b> {{l.loadFactor}}</small>
+        </div>
+    </div>
+    <p class="p-1"><b>Price:</b> {{journey?.price?.amount}} {{journey?.price?.currency}}</p>
+</div>

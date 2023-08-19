@@ -1,0 +1,65 @@
+<div class="d-flex justify-content-between">
+    <h5 class="mt-2">Search</h5>
+    <button type="button" class="btn align-self-start" (click)="OnFormCollapse()">
+        <span style="vertical-align: middle;">{{formCollapsed ? 'Show' : 'Hide'}}</span>
+        <img src="/assets/images/arrow-up-64.png" width="24" height="24" [@rotatedState]="formCollapsed">
+    </button>
+</div>
+<div [@collapseForm]="formCollapsed">
+    <form [formGroup]="tripForm" (ngSubmit)="onSubmitTrip()">
+        <div class="my-2 form-group">
+            <label for="from-place">From:</label>
+            <input type="text" class="form-control" id="from-place" #fromPlaceSearch autocomplete="off" formControlName="from">
+            <div class="list-group" [hidden]="!showFromSearches" style="max-height: 80px; overflow: auto;">
+                <a *ngFor="let s of searchedLocations" class="list-group-item search-item" (click)="setFromPlace(s)">{{s.name}}</a>
+            </div>
+        </div>
+        <div class="my-2 form-group" #toPlaceDiv>
+            <label for="to-place">To:</label>
+            <input type="text" class="form-control" id="to-place" #toPlaceSearch autocomplete="off" formControlName="to">
+            <div class="list-group" [hidden]="!showToSearches" style="max-height: 80px; overflow: auto;">
+                <a *ngFor="let s of searchedLocations" class="list-group-item search-item" (click)="setToPlace(s)">{{s.name}}</a>
+            </div>
+        </div>      
+        <div class="my-2 form-group">
+            <label for="depature">Depature:</label>
+            <input type="datetime-local" class="form-control" id="depature" formControlName="depature" [min]="minDate | date: 'yyyy-MM-ddThh:mm'">
+        </div>
+        <div class="my-2 form-group">
+            <label for="arrival">Arrival:</label>
+            <input type="datetime-local" class="form-control" id="arrival" formControlName="arrival" [min]="minDate | date: 'yyyy-MM-ddThh:mm'">
+        </div>
+        <div class="my-2 form-group">
+            <button type="button" class="btn btn-options" (click)="OnMoreOptions()">More options</button>
+            <div class="row row-cols-md-2 row-cols-lg-3 px-4" [@collapseOptions]="optionsCollapsed" style="overflow: hidden;">
+                <div class="col form-check">
+                    <input class="form-check-input" type="checkbox" id="ice" formControlName="ice">
+                    <label class="form-check-label" for="ice">ICE</label>
+                </div>
+                <div class="col form-check">
+                    <input class="form-check-input" type="checkbox" id="ic" formControlName="ic">
+                    <label class="form-check-label" for="ic">IC/EC</label>
+                </div>
+                <div class="col form-check">
+                    <input class="form-check-input" type="checkbox" id="re" formControlName="re">
+                    <label class="form-check-label" for="re">RE/IR</label>
+                </div>
+                <div class="col form-check">
+                    <input class="form-check-input" type="checkbox" id="rb" formControlName="rb">
+                    <label class="form-check-label" for="rb">RB</label>
+                </div>
+                <div class="col form-check">
+                    <input class="form-check-input" type="checkbox" id="s-bahn" formControlName="sbahn">
+                    <label class="form-check-label" for="s-bahn">S-Bahn</label>
+                </div>
+                <div class="col form-check">
+                    <input class="form-check-input" type="checkbox" id="bus" formControlName="bus">
+                    <label class="form-check-label" for="bus">Bus</label>
+                </div>
+            </div>
+        </div>
+        <div class="mt-3">
+            <button type="submit" class="btn btn-submit" [disabled]="isPending">Show</button>
+        </div>
+    </form>
+</div>

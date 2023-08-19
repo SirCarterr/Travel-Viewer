@@ -1,0 +1,16 @@
+<div class="p-2">
+    <div class="p-1">
+        <div class="d-flex flex-column">
+            <h5 *ngIf="type === 'depatures'; else arrival">{{stop?.stop?.name}} -> {{stop?.destination?.name}}</h5>
+            <ng-template #arrival>
+                <h5>{{stop?.origin?.name}} -> {{stop?.stop?.name}}</h5>
+            </ng-template>
+            <p class="m-0"><b>When:</b> {{stop?.when}}</p>
+            <small>(<b>Planned:</b> {{stop?.plannedWhen}})</small>
+            <br>
+            <p class="m-0"><b>Type:</b> {{stop?.line?.mode}}</p>
+            <p><b>Name:</b> {{stop?.line?.name}} ({{stop?.line?.product}})</p>
+            <small><b>Operator:</b> {{stop?.line?.operator?.name}}</small>
+        </div>
+    </div>
+</div>

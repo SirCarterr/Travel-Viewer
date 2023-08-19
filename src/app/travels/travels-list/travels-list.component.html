@@ -1,0 +1,50 @@
+<div *ngIf="!isUpdating; else loading" class="d-flex flex-column">
+    <div *ngIf="response">
+        <div *ngIf="response.type === 'journeys'; else stops">
+            <div *ngIf="$journeys(response.data).journeys.length > 0; else emptyJourneys">
+                <div *ngFor="let journey of $journeys(response.data).journeys; let i = index">
+                    <div class="card-item" (click)="onSelected(i)" [ngClass]="{ 'card-item-active': selectedItemIndex == i}">
+                        <app-travels-journey [journey]="journey" class="card-item"></app-travels-journey>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <ng-template #emptyJourneys>
+                <h5 class="text-center">No journeys found</h5>
+            </ng-template>
+        </div>
+        <ng-template #stops>
+            <div *ngIf="response.type === 'arrivals'; else depatures">
+                <div *ngIf="$arrivals(response.data).arrivals.length > 0; else emptyArrivals">
+                    <div *ngFor="let arrival of $arrivals(response.data).arrivals; let i = index">
+                        <div class="card-item" (click)="onSelected(i)" [ngClass]="{ 'card-item-active': selectedItemIndex == i}"> 
+                            <app-travels-stop [stop]="arrival" [type]="response.type" class="card-item"></app-travels-stop>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+                <ng-template #emptyArrivals>
+                    <h5 class="text-center">No arrivals found</h5>
+                </ng-template>
+            </div>
+            <ng-template #depatures>
+                <div *ngIf="$depatures(response.data).departures.length > 0; else emptyDepatures">
+                    <div *ngFor="let depature of $depatures(response.data).departures; let i = index">
+                        <div class="card-item" (click)="onSelected(i)" [ngClass]="{ 'card-item-active': selectedItemIndex == i}">
+                            <app-travels-stop [stop]="depature" [type]="response.type"></app-travels-stop>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+                <ng-template #emptyDepatures>
+                    <h5 class="text-center">No depatures found</h5>
+                </ng-template>
+            </ng-template>
+        </ng-template>
+    </div>
+</div>
+<ng-template #loading>
+    <div class="container text-center">
+        <img src="/assets/images/Magnify-1s-200px.gif" class="" width="64" height="64">
+    </div>
+</ng-template>

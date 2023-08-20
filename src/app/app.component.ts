@@ -165,6 +165,10 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
         lng: data[average][Math.floor(data[average].length/2)].lng
       });
     }
+
+    if(this.innerWidth < 900) {
+      this.state = 'closed'
+    }
   }
 
   private setMarker(coordinates: {lat: number, lng: number}) {

@@ -12,9 +12,11 @@ export class MapsPolylineService {
     SetNewPolyline(journey: Journey) {
         this.polylineCoordinates = [];
         for(let i = 0; i < journey.legs.length; i++) {
-            this.polylineCoordinates[i] = [];
-            for (let p of journey.legs[i].polyline.features) {
-                this.polylineCoordinates[i].push({lat: p.geometry.coordinates[1], lng: p.geometry.coordinates[0]});
+            if (journey.legs[i].polyline) {
+                this.polylineCoordinates[i] = [];
+                for (let p of journey.legs[i].polyline!.features) {
+                    this.polylineCoordinates[i].push({lat: p.geometry.coordinates[1], lng: p.geometry.coordinates[0]});
+                }
             }
         }
         this.polylineChanged.next(this.polylineCoordinates);

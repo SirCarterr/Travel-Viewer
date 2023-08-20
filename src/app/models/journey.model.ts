@@ -15,7 +15,7 @@ export class Journey {
             arrivalDelay: number,
             reachable: boolean,
             tripId: string
-            line: {
+            line?: {
                 type: string,
                 id: string,
                 fahrtNr: string,
@@ -38,7 +38,7 @@ export class Journey {
             depaturePlatform: string,
             plannedDeparturePlatform: string,
             departurePrognosisType: string,
-            polyline: Polyline
+            polyline?: Polyline
             remarks: {
                 text: string,
                 type: string,

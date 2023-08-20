@@ -86,7 +86,7 @@ export class DataService {
                 return journeys;
             }),
             tap(journeys => {
-                console.log(journeys);
+                //console.log(journeys);
                 this.travelsService.setJourneys(journeys);
             })
         );

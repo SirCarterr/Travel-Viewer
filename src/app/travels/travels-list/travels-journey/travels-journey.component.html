@@ -8,9 +8,9 @@
             <p class="mb-0 mt-1"><b>Arrival:</b> {{l.arrival}}</p>
             <small>(<b>Planned:</b> {{l.plannedArrival}})</small>
             <br>
-            <p class="m-0"><b>Type:</b> {{l.line.mode}}</p>
-            <p><b>Name:</b> {{l.line.name}} ({{l.line.product}})</p>
-            <small><b>Operator:</b> {{l.line.operator.name}}</small>
+            <p class="m-0"><b>Type:</b> {{l.line?.mode}}</p>
+            <p><b>Name:</b> {{l.line?.name}} ({{l.line?.product}})</p>
+            <small><b>Operator:</b> {{l.line?.operator?.name}}</small>
             <small><b>Load factor:</b> {{l.loadFactor}}</small>
         </div>
     </div>

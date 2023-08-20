@@ -13,12 +13,3 @@ on google map where you can see where and how the train goes.
 
 Demo:
 https://travel-viewer-c2d07.web.app/
-
-## Development server
-
-1) Go to 'index.html' to line 15 and in <script> section enter your APi key (you can get it here: https://developers.google.com/maps/documentation/javascript/get-api-key).
-2) Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

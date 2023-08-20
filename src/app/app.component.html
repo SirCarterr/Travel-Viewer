@@ -1,7 +1,9 @@
 <div class="d-flex flex-row-reverse p-0" style="overflow: hidden; height: 100vh;">
-  <div [@menuCollapsed]="state" class="p-3" style="background-color: lightgray;">
-    <img [@rotatedState]="state" src="/assets/images/arrow-right-64.png" width="32" height="32" (click)="onClick()" style="cursor: pointer;">
-    <div [@menuVisible]="state">
+  <div [@menuCollapsed]="state" class="" style="background-color: lightgray;">
+    <div class="p-3" style="background-color: lightgray; position:-webkit-sticky; position:sticky; top:0;">
+      <img [@rotatedState]="state" src="/assets/images/arrow-right-64.png" width="32" height="32" (click)="onClick()" style="cursor: pointer;">
+    </div>
+    <div [@menuVisible]="state" class="p-3">
       <app-travels></app-travels>
     </div>
   </div>
